@@ -7,7 +7,6 @@ locals {
   region = "eu-central-1"
 
   tags = {
-    Example  = local.name
     Owner    = "jmoreno"
     Creation = timestamp()
   }
