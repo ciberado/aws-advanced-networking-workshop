@@ -21,11 +21,11 @@ module "vpc_ingress" {
   public_subnets  = ["10.10.11.0/24", "10.10.12.0/24"]
   private_subnets = ["10.10.1.0/24", "10.10.2.0/24"]
 
-  enable_ipv6     = false
+  enable_ipv6 = false
 
   enable_nat_gateway = true
   single_nat_gateway = true
-  tags = local.ingressTags
+  tags               = local.ingressTags
 }
 
 resource "aws_security_group" "app1_sg" {

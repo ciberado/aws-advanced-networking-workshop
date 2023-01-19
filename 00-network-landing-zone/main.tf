@@ -30,9 +30,9 @@ module "tgw" {
       })
     },
     vpc_inner = {
-      vpc_id     = module.vpc_inner.vpc_id
-      subnet_ids = module.vpc_inner.private_subnets
-      dns_support = true
+      vpc_id       = module.vpc_inner.vpc_id
+      subnet_ids   = module.vpc_inner.private_subnets
+      dns_support  = true
       ipv6_support = false
       tags = merge(local.tags, {
         Name : "${local.name}-tgw-attachment-inner"

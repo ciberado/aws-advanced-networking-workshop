@@ -20,9 +20,9 @@ module "vpc_inner" {
 
   enable_ipv6 = false
 
-  enable_dns_support  = true
+  enable_dns_support   = true
   enable_dns_hostnames = true
-  
+
 
   tags = local.innerTags
 }
@@ -75,11 +75,11 @@ module "vpc_inner_endpoints" {
       service             = "ec2messages"
       private_dns_enabled = true
       subnet_ids          = module.vpc_inner.private_subnets
-    }    
+    }
   }
 
   tags = local.innerTags
-  
+
 }
 
 
@@ -125,6 +125,6 @@ EOF
   tags = merge({
     Name = "app-${local.innerTags.Connectivity}"
   }, local.innerTags)
-  
-    
+
+
 }
