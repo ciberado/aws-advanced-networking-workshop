@@ -1,4 +1,4 @@
-resource "aws_subnet" "att_subnet" {
+resource "aws_subnet" "attachment_subnet" {
   count = length(module.vpc_ingress.azs)
 
   vpc_id            = module.vpc_ingress.vpc_id
