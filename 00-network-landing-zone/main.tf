@@ -8,7 +8,6 @@ locals {
 
   tags = {
     Owner    = "jmoreno"
-    Creation = timestamp()
   }
 }
 
