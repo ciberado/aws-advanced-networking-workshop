@@ -2,7 +2,7 @@ resource "aws_subnet" "nfw_subnet" {
   count = length(module.vpc_ingress.azs)
 
   vpc_id            = module.vpc_ingress.vpc_id
-  cidr_block        = ["10.10.21.0/24", "10.10.22.0/24"][count.index]
+  cidr_block        = ["10.10.31.0/24", "10.10.32.0/24"][count.index]
   availability_zone = element(module.vpc_ingress.azs, count.index)
   tags = merge(
     {
