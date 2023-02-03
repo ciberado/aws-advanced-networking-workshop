@@ -19,7 +19,7 @@ module "tgw" {
   vpc_attachments = {
     vpc_ingress = {
       vpc_id       = module.vpc_ingress.vpc_id
-      subnet_ids   = module.vpc_ingress.private_subnets
+      subnet_ids   = aws_subnet.attachment_subnet[*].id
       dns_support  = true
       ipv6_support = false
       tags = merge(local.tags, {
@@ -28,7 +28,7 @@ module "tgw" {
     },
     vpc_inner = {
       vpc_id       = module.vpc_inner.vpc_id
-      subnet_ids   = module.vpc_inner.private_subnets
+      subnet_ids   = aws_subnet.attachment_subnet[*].id
       dns_support  = true
       ipv6_support = false
       tags = merge(local.tags, {
