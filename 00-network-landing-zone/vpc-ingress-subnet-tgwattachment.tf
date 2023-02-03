@@ -32,6 +32,6 @@ resource "aws_route" "attachment_rt_routetonat" {
 
 resource "aws_route_table_association" "attachment_rt_ass" {
   count          = length(module.vpc_ingress.azs)
-  subnet_id      = element(aws_subnet.att_subnet[*].id, count.index)
+  subnet_id      = element(aws_subnet.attachment_subnet[*].id, count.index)
   route_table_id = aws_route_table.attachment_rt.id
 }
