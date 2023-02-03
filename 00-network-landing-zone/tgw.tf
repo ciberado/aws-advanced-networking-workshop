@@ -10,10 +10,8 @@ module "tgw" {
 
   transit_gateway_cidr_blocks = ["10.99.0.0/24"]
 
-  # When "true" there is no need for RAM resources if using multiple AWS accounts
   enable_auto_accept_shared_attachments = true
 
-  # When "true", allows service discovery through IGMP
   enable_mutlicast_support = false
 
   share_tgw = false
