@@ -12,6 +12,7 @@ module "tgw" {
 
   enable_auto_accept_shared_attachments = true
 
+
   enable_mutlicast_support = false
 
   share_tgw = false
@@ -39,6 +40,6 @@ module "tgw" {
 
   tags = local.tags
 
-  depends_on = ["aws_subnet.attachment_subnet[0]", "aws_subnet.attachment_subnet[1]"]
+  depends_on = [aws_subnet.attachment_subnet[0], aws_subnet.attachment_subnet[1]]
     
 }
