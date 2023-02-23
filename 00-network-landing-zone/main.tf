@@ -2,8 +2,11 @@ provider "aws" {
   region = var.region
 }
 
+resource "random_pet" "suffix" {
+}
+
 locals {
-  name   = "demo-tgw-${replace(basename(path.cwd), "_", "-")}"
+  name   = "demoingress-${replace(random_pet.suffix.id, "-", "")}"
   region = "eu-central-1"
 
   tags = {

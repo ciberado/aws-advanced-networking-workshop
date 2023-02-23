@@ -1,6 +1,3 @@
-# TODO: tabla de rutas 0.0.0.0/0 a tgw
-# TODO: separa subnets para los attachments
-
 locals {
   innerTags = merge({
     Connectivity : "inner"
@@ -25,6 +22,12 @@ module "vpc_inner" {
 
 
   tags = local.innerTags
+}
+
+resource "aws_route" "vpc_inner_route2tgw" {
+  route_table_id         = "${module.vpc_inner.private_route_table_ids[0]}"
+  destination_cidr_block = "10.0.0.0/8"
+  transit_gateway_id     = "${module.tgw.ec2_transit_gateway_id}"
 }
 
 resource "aws_security_group" "vpc_inner_endpoints_sg" {
